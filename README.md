@@ -12,3 +12,14 @@ This contains everything you need to run your app locally.
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Backend Server
+
+A Fastify + TypeScript backend is provided in the `server/` folder. To run it:
+
+```bash
+cd server
+npm install
+cp .env.example .env # update values
+npm run dev
+```
