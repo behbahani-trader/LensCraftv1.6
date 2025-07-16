@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>راهنمای اجرای برنامه روی ویندوز</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #f8fafc;
+        }
+        .dark body {
+            background-color: #020617;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+        .dark .card {
+            background-color: #1e293b;
+            border-color: #334155;
+        }
+        .code-block {
+            position: relative;
+            background-color: #1f2937;
+            color: #d1d5db;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: monospace;
+            direction: ltr;
+            text-align: left;
+            overflow-x: auto;
+        }
+        .code-block .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background-color: #4b5563;
+            color: white;
+            border: none;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: background-color 0.2s;
+        }
+        .code-block .copy-btn:hover {
+            background-color: #6b7280;
+        }
+        .step-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: #0284c7;
+        }
+        .dark .step-icon {
+            background-color: #1e3a8a;
+            color: #7dd3fc;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #2563eb;
+            color: white;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+    </style>
+</head>
+<body class="text-slate-700 dark:text-slate-300">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">راهنمای اجرای برنامه روی ویندوز</h1>
+            <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">مراحل کامل برای اجرای برنامه به صورت محلی روی کامپیوتر شما.</p>
+        </header>
+
+        <main class="space-y-8">
+
+            <div class="card p-6">
+                <h2 class="text-2xl font-semibold mb-3 text-slate-800 dark:text-slate-100">مقدمه</h2>
+                <p>این برنامه یک اپلیکیشن وب است و روی هر سیستم عاملی که مرورگر وب داشته باشد، از جمله ویندوز، اجرا می‌شود. برای اجرای آن روی کامپیوتر شخصی خود، نیاز به یک محیط توسعه کوچک دارید که با چند مرحله ساده قابل راه‌اندازی است. این راهنما شما را قدم به قدم همراهی می‌کند.</p>
+            </div>
+            
+            <div class="card p-6 flex flex-col md:flex-row items-start gap-6">
+                <div class="step-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2 text-slate-800 dark:text-slate-100">مرحله ۱: نصب Node.js</h3>
+                    <p class="mb-4">ابتدا باید Node.js را نصب کنید. این ابزار به ما اجازه می‌دهد تا وابستگی‌های برنامه را مدیریت کرده و یک سرور توسعه محلی را اجرا کنیم.</p>
+                    <p class="mb-4">به وبسایت رسمی Node.js بروید و نسخه LTS (Recommended For Most Users) را دانلود و نصب کنید. مراحل نصب بسیار ساده و شبیه به سایر نرم‌افزارهاست.</p>
+                    <a href="https://nodejs.org/" target="_blank" class="btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /></svg>
+                        رفتن به سایت Node.js
+                    </a>
+                </div>
+            </div>
+
+            <div class="card p-6 flex flex-col md:flex-row items-start gap-6">
+                <div class="step-icon">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2 text-slate-800 dark:text-slate-100">مرحله ۲: باز کردن ترمینال و رفتن به پوشه پروژه</h3>
+                    <p class="mb-4">ترمینال ویندوز را باز کنید. می‌توانید کلمه <code class="bg-slate-200 dark:bg-slate-700 px-1 rounded-md">PowerShell</code> یا <code class="bg-slate-200 dark:bg-slate-700 px-1 rounded-md">cmd</code> را در منوی استارت جستجو کنید. سپس با استفاده از دستور <code class="bg-slate-200 dark:bg-slate-700 px-1 rounded-md">cd</code> به پوشه‌ای که فایل‌های برنامه در آن قرار دارند بروید.</p>
+                    <div class="code-block">
+                        <button class="copy-btn">کپی</button>
+                        <pre><code># مثال: اگر پروژه شما در دسکتاپ است
+cd C:\Users\YourUserName\Desktop\project-folder</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-6 flex flex-col md:flex-row items-start gap-6">
+                <div class="step-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2 text-slate-800 dark:text-slate-100">مرحله ۳: نصب وابستگی‌ها</h3>
+                    <p class="mb-4">در ترمینال (که در مرحله قبل باز کردید)، دستور زیر را برای نصب تمام پکیج‌های مورد نیاز برنامه اجرا کنید. این فرآیند ممکن است چند دقیقه طول بکشد.</p>
+                    <div class="code-block">
+                        <button class="copy-btn">کپی</button>
+                        <pre><code>npm install</code></pre>
+                    </div>
+                </div>
+            </div>
+
+             <div class="card p-6 flex flex-col md:flex-row items-start gap-6">
+                <div class="step-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2h14a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"></path><line x1="10" y1="18" x2="14" y2="18"></line></svg>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2 text-slate-800 dark:text-slate-100">مرحله ۴: اجرای برنامه</h3>
+                    <p class="mb-4">پس از اتمام نصب، دستور زیر را برای اجرای سرور توسعه محلی اجرا کنید.</p>
+                    <div class="code-block">
+                        <button class="copy-btn">کپی</button>
+                        <pre><code>npm run dev</code></pre>
+                    </div>
+                    <p class="mt-4">شما خروجی‌ای شبیه به این خواهید دید که آدرس محلی برنامه را نشان می‌دهد:</p>
+                    <div class="code-block">
+                        <pre><code>VITE v5.2.0  ready in 380 ms
+
+➜  Local:   http://localhost:5173/
+➜  Network: use --host to expose
+➜  press h + enter to show help</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card p-6 flex flex-col md:flex-row items-start gap-6">
+                <div class="step-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2 text-slate-800 dark:text-slate-100">مرحله ۵: مشاهده در مرورگر</h3>
+                     <p class="mb-4">در نهایت، مرورگر وب خود (مانند کروم یا اج) را باز کرده و آدرس <a href="http://localhost:5173" target="_blank" class="text-blue-500 hover:underline">http://localhost:5173</a> را در نوار آدرس وارد کنید. برنامه باید در مرورگر شما نمایش داده شود.</p>
+                     <p>تبریک می‌گوییم! 🎉 شما با موفقیت برنامه را روی ویندوز اجرا کردید. تا زمانی که ترمینال باز باشد و سرور در حال اجرا باشد، برنامه در دسترس خواهد بود.</p>
+                </div>
+            </div>
+
+        </main>
+        
+        <footer class="text-center mt-12 py-6 border-t border-slate-200 dark:border-slate-800">
+            <p class="text-sm text-slate-500 dark:text-slate-400">راهنمای اجرا تهیه شده برای نرم‌افزار Lens Craft.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const codeBlock = button.nextElementSibling;
+                const text = codeBlock.innerText;
+                navigator.clipboard.writeText(text).then(() => {
+                    button.textContent = 'کپی شد!';
+                    setTimeout(() => {
+                        button.textContent = 'کپی';
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
+                });
+            });
+        });
+
+        // Simple dark mode toggle for guide readability
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</body>
+</html>
