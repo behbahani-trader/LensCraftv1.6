@@ -15,11 +15,17 @@ This contains everything you need to run your app locally.
 
 ## Backend Server
 
-A Fastify + TypeScript backend is provided in the `server/` folder. To run it:
+A Fastify + TypeScript backend is provided in the `server/` folder.
+You can use the `setup.sh` script to configure and build it automatically:
 
 ```bash
 cd server
-npm install
-cp .env.example .env # update values
-npm run dev
+./setup.sh
+```
+
+The script installs dependencies, creates the `.env` file, runs Prisma
+migrations and builds the project. When finished start the server with:
+
+```bash
+npm start
 ```
