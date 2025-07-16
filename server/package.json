@@ -1,0 +1,26 @@
+{
+  "name": "lenscraft-backend",
+  "version": "1.0.0",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "ts-node src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "prisma": "prisma"
+  },
+  "dependencies": {
+    "@fastify/cors": "^8.2.1",
+    "@fastify/jwt": "^7.1.0",
+    "@prisma/client": "5.14.1",
+    "dotenv": "^16.4.5",
+    "fastify": "^4.26.2",
+    "fastify-helmet": "^10.0.0",
+    "zod": "^3.22.4",
+    "bcryptjs": "^2.4.3"
+  },
+  "devDependencies": {
+    "prisma": "5.14.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
